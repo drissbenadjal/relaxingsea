@@ -41,7 +41,7 @@ canvas {
   /* display: none; */
 }
 
-.start_screen img {
+.start_screen .start_screen_img {
   object-fit: cover;
   width: 200%;
   height: 200%;
@@ -293,4 +293,18 @@ button.togglesound #unmute {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.konami {
+  position: fixed;
+  z-index: 50;
+  bottom: 2%;
+  right: 2%;
+  width: 150px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(103, 103, 103); */
+  transition: opacity 1s ease;
 }
