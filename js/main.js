@@ -582,7 +582,8 @@ const createKaarisNight = () => {
     scene.add(kaarisPlaneNight);
 }
 
-let kaarisAudio = new Audio('../assets/kaariszoo.mp3');
+// let kaarisAudio = new Audio('../assets/kaariszoo.mp3');
+let kaarisAudio = new Audio('../assets/kaariszinzin.mp3');
 
 //quand on fait le konami code ca lance le son de kaaris flait le konami code a la main sans lib
 let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
