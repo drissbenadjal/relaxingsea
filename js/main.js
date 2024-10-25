@@ -594,7 +594,8 @@ document.addEventListener('keydown', (event) => {
         if (konamiCodePosition === konamiCode.length) {
             kaarisAudio.play();
             kaarisAudio.volume = .7;
-            kaarisAudio.currentTime = 40;
+            kaarisAudio.currentTime = 5;
+            // kaarisAudio.currentTime = 40;
             konamiCodePosition = 0;
             kaarisMode = true;
 
