@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This project is a simple parallax effect with a sea theme. All the assets are made with painting, and the project is made with vanilla JavaScript.">
+    <meta name="description"
+        content="This project is a simple parallax effect with a sea theme. All the assets are made with painting, and the project is made with vanilla JavaScript.">
     <title>Relaxing Parallax Sea</title>
     <link rel="icon" href="./assets/relaxingsea.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
@@ -13,7 +14,9 @@
 
 <body>
     <div class="loader">
-        <div class="spinner"></div>
+        <div class="spinner_container">
+            <div class="spinner"></div>
+        </div>
         <img src="./assets/water.jpg" alt="" draggable="false">
     </div>
     <div class="start_screen">
@@ -46,6 +49,8 @@
             </svg>
         </button>
     </div>
+
+    <div class="crossair"></div>
 
     <div class="keyinstruction">
         Press <img id="mkeyimg" src="./assets/mkey.png" alt="" draggable="false"> for change mode

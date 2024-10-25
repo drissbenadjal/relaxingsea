@@ -522,7 +522,7 @@ const changeMode = () => {
         kaarisClickAudio.play();
         kaarisClickAudio.volume = 1;
         setTimeout(() => {
-            kaarisAudio.volume = 1;
+            kaarisAudio.volume = .7;
         }, 1500);
     }
     // console.log('mode', mode);
@@ -593,7 +593,7 @@ document.addEventListener('keydown', (event) => {
         konamiCodePosition++;
         if (konamiCodePosition === konamiCode.length) {
             kaarisAudio.play();
-            kaarisAudio.volume = 1;
+            kaarisAudio.volume = .7;
             kaarisAudio.currentTime = 40;
             konamiCodePosition = 0;
             kaarisMode = true;
