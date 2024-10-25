@@ -612,6 +612,8 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+const clock = new THREE.Clock();
+
 function animate() {
     requestAnimationFrame(animate);
 
@@ -644,12 +646,25 @@ function animate() {
         if (kaarisPlaneNight.position.y <= 0) kaarisPlaneNight.position.y += 0.3;
     }
 
+    let lastFrameTime = performance.now();
+
     if (dolphins.length > 0) {
         for (let dolphin of dolphins) {
             const i = dolphins.indexOf(dolphin);
             if (animDolphin) {
                 setTimeout(() => {
-                    dolphin.rotation.z -= 0.02;
+                    //si les fps sont a 120 on fait - .02 si c'est 60 on .05 et si c'est 30 on fait - 0.10
+                    if (lastFrameTime > 1000 / 120) {
+                        console.log('fps1', lastFrameTime);
+                        dolphin.rotation.z -= 0.02;
+                    } else if (lastFrameTime > 1000 / 60) {
+                        console.log('fps2', lastFrameTime);
+                        dolphin.rotation.z -= 0.05;
+                    } else {
+                        console.log('fps3', lastFrameTime);
+                        dolphin.rotation.z -= 0.10;
+                    }
+                    // dolphin.rotation.z -= 0.02;
                 }, (i + 1) * 200);
             } else {
                 dolphin.rotation.z = -3;
