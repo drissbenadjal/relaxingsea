@@ -196,7 +196,6 @@ const materialBG = new THREE.ShaderMaterial({
 
 const planeBG = new THREE.Mesh(geometryBG, materialBG);
 scene.add(planeBG);
-planeBG.rotation.y = 30;
 
 // Placer comme si c'était le ciel
 planeBG.position.z = -1;
@@ -617,7 +616,6 @@ let lastTime = performance.now(); // Moment de départ
 function animate() {
     requestAnimationFrame(animate);
 
-
     smoothCameraTransition();
 
     planeSun.rotation.y += 0.0001;
@@ -630,8 +628,9 @@ function animate() {
     planeMoon.rotation.z += 0.00009;
 
     // Rotation douce du ciel
-    // planeBG.rotation.y -= 0.0001;
-    planeBG.rotation.z += 0.00009;
+    planeBG.rotation.y -= 0.000009;
+    planeBG.rotation.z += 0.000009;
+    // planeBG.rotation.y += 0.09;
 
     // Rotation douce du ciel
     planeNight.rotation.y -= 0.0001;
