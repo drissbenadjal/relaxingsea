@@ -612,7 +612,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-const clock = new THREE.Clock();
+let lastTime = performance.now(); // Moment de départ
 
 function animate() {
     requestAnimationFrame(animate);
@@ -646,23 +646,28 @@ function animate() {
         if (kaarisPlaneNight.position.y <= 0) kaarisPlaneNight.position.y += 0.3;
     }
 
-    let lastFrameTime = performance.now();
+    const currentTime = performance.now();
+    const delta = currentTime - lastTime;
+    lastTime = currentTime;
+
+    // Calcul des FPS (1 seconde = 1000 millisecondes)
+    const fps = 1000 / delta;
 
     if (dolphins.length > 0) {
         for (let dolphin of dolphins) {
             const i = dolphins.indexOf(dolphin);
             if (animDolphin) {
+                // console.log(fps);
                 setTimeout(() => {
-                    //si les fps sont a 120 on fait - .02 si c'est 60 on .05 et si c'est 30 on fait - 0.10
-                    if (lastFrameTime > 1000 / 120) {
-                        console.log('fps1', lastFrameTime);
+                    //si les fps sont a 120 ou plus on fait - .02 si c'est 61 ou moin on .05 et si c'est 31 ou moin on fait - 0.10
+                    if (fps <= 40) {
+                        // console.log('3');
+                        dolphin.rotation.z -= 0.08;
+                    } else if (fps <= 91) {
+                        // console.log('2');
+                        dolphin.rotation.z -= 0.045;
+                    } else if (fps >= 92) {
                         dolphin.rotation.z -= 0.02;
-                    } else if (lastFrameTime > 1000 / 60) {
-                        console.log('fps2', lastFrameTime);
-                        dolphin.rotation.z -= 0.05;
-                    } else {
-                        console.log('fps3', lastFrameTime);
-                        dolphin.rotation.z -= 0.10;
                     }
                     // dolphin.rotation.z -= 0.02;
                 }, (i + 1) * 200);
