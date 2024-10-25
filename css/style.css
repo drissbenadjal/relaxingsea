@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}
+
+canvas {
+  position: fixed;
+  z-index: 1;
+  opacity: 1;
+}
+
+.background {
+  position: fixed;
+  /* z-index: -1; */
+  width: 100%;
+  height: 100vh;
+  opacity: 0.5;
+}
+
+.start_screen {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(103, 103, 103);
+  transition: opacity 1s ease;
+  overflow: hidden;
+  /* display: none; */
+}
+
+.start_screen img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  filter: blur(5px);
+  scale: 2;
+  animation: moveBackground 1000s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    transform: scale(2) translateX(0) translateY(0);
+  }
+
+  50% {
+    transform: scale(2) translateX(-100%) translateY(-100%);
+  }
+
+  100% {
+    transform: scale(2) translateX(0) translateY(0);
+  }
+}
+
+.start_screen .container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 16%;
+}
+
+.start_screen .container h1 {
+  color: #fff;
+  font-size: 6rem;
+  font-family: "Shadows Into Light Two", cursive;
+  text-align: center;
+  margin: 0;
+}
+
+.start_screen .container p {
+  color: #fff;
+  font-size: .9rem;
+  text-align: center;
+  font-family: "Shadows Into Light Two", cursive;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+
+.start_screen .container #start {
+  z-index: 102;
+  margin-top: 1rem;
+  padding: 1.5rem 3.5rem;
+  font-size: 4.5rem;
+  background-color: transparent;
+  border-radius: 15px;
+  border: 1px solid #000000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: "Shadows Into Light Two", cursive;
+  font-weight: 400;
+  font-style: normal;
+  transition: transform 0.2s ease, opacity 0.6s ease;
+  user-select: none;
+  opacity: .5;
+  margin-top: 12%;
+  animation: pulse 5s infinite;
+}
+
+.start_screen .container #start:hover {
+  opacity: 1 !important;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.start_screen .container #start:active {
+  transform: scale(0.9);
+}
+
+.ath {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+button.togglesound {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 2.5rem 1rem;
+  font-family: "Shadows Into Light Two", cursive;
+  font-weight: 400;
+  font-style: normal;
+  transition: transform 0.2s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.togglesound svg {
+  width: 3rem;
+  height: 3rem;
+  fill: #fff;
+}
+
+
+button.mute #mute {
+  display: none;
+}
+
+button.unmute #unmute {
+  display: none;
+}
+
+button.togglesound #unmute {
+  width: 2.7rem !important;
+  height: 2.7rem !important;
+  margin-right: 4.8px;
+  margin-top: 2.5px;
+}
+
+#togglemode {
+  background-color: transparent;
+  pointer-events: none;
+  height: 0;
+  border: none;
+}
+
+.keyinstruction {
+  position: fixed;
+  left: 50%;
+  bottom: 20%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Shadows Into Light Two", cursive;
+  color: #fff;
+  font-weight: 400;
+  user-select: none;
+}
+
+.keyinstruction:active img{
+  width: 9.5%;
+  height: 9.5%;
+}
+
+.keyinstruction img {
+  width: 10%;
+  height: 10%;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.keyinstructiontwo {
+  position: fixed;
+  left: 50%;
+  bottom: 15%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Shadows Into Light Two", cursive;
+  color: #fff;
+  font-weight: 400;
+  user-select: none;
+}
+
+.keyinstructiontwo:active img{
+  width: 9.5%;
+  height: 9.5%;
+}
+
+.keyinstructiontwo img {
+  width: 10%;
+  height: 10%;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.loader {
+  position: fixed;
+  z-index: 201;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(103, 103, 103);
+  transition: opacity 1s ease;
+}
+
+.loader img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  filter: blur(5px);
+  scale: 2;
+  animation: moveBackground 1000s linear infinite;
+}
+
+.loader .spinner {
+  position: fixed;
+  z-index: 201;
+  left: 46.5%;
+  top: 44%;
+  transform: translate(-40%, -40%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #ffffff42;
+  border-top: 2px solid #fff;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
